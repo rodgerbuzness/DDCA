@@ -1,0 +1,11 @@
+﻿@if (ViewBag.ActionMethod == "New")
+{
+    <h3 class="text-success text-center">You have Successfully Added a new Survey record in the database!</h3>
+}
+else
+{
+    <h3 class="text-success text-center">You have Successfully Edited a Survey record in the database!</h3>
+}
+
+
+    <div class="text-center h4">@Html.ActionLink("Click Here To View", "Index", "Surveys")</div>

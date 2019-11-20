@@ -1,0 +1,92 @@
+﻿@model DDCA.Areas.MachineService.ViewModels.CarServiceNew
+
+
+@{
+    /**/
+
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("MachineServiceCarEdit", options))
+{
+
+    Html.AntiForgeryToken();
+
+
+    <div class="container">
+
+        <div class="row">
+
+            @Html.HiddenFor(x => x.CarId)
+            @Html.HiddenFor(x => x.RegNo)
+            @Html.HiddenFor(x => x.Id)
+            <h2 class="text-center text-primary">Edit Machine Service Data</h2>
+            <hr />
+            <div class="col-sm-12">
+                <h4 class="text-left text-uppercase text-info"><b>Edit Service Description for Car, REG: @ViewBag.CarNo</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.InchargeName, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.DropDownListFor(x => x.InchargeName, ViewBag.watu as SelectList, "-- Select Name --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.InchargeName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.MaterialCost, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(x => x.MaterialCost, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.MaterialCost, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.LabourCost, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(x => x.LabourCost, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.LabourCost, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.StartDate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.ValidationMessageFor(x => x.StartDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.EndDate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(x => x.EndDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.JobDone, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.TextAreaFor(x => x.JobDone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.JobDone, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <input type="submit" name="nextBtn" value="Update" class="btn btn-primary col-lg-offset-5" />
+        </div>
+
+    </div>
+
+}
+
+
+

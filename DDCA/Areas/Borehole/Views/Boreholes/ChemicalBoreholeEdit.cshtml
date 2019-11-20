@@ -1,0 +1,299 @@
+﻿
+@model DDCA.Areas.Borehole.ViewModels.ChemicalEdit
+
+
+@{
+    /**/
+
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("ChemicalBoreholeEdit", options))
+{
+
+    <h2 class="text-center text-primary">New Borehole Data</h2>
+    <hr />
+    <h2 class="">Step 6/<i class="text-info">7</i> :</h2>
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    <div class="container">
+        <div class="row">
+            <h4 class="text-center text-info"><b>Water Chemical Composition(Mg/L)</b></h4>
+            <div class="col-sm-4">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Hardness, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Hardness, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Hardness, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Manganese, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Manganese, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Manganese, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.OrthoPhosphate, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.OrthoPhosphate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.OrthoPhosphate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Iron, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Iron, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Iron, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.NitrateNitrogen, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.NitrateNitrogen, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.NitrateNitrogen, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Carbonate, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Carbonate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Carbonate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Phenophthalein, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Phenophthalein, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Phenophthalein, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.NonCarbonate, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.NonCarbonate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.NonCarbonate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Sodium, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Sodium, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Sodium, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Cadmium, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Cadmium, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Cadmium, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Calcium, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Calcium, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Calcium, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Chloride, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Chloride, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Chloride, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Fluoride, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Fluoride, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Fluoride, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.TotalNitrogen, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.TotalNitrogen, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.TotalNitrogen, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Chromium, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Chromium, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Chromium, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mercury, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Mercury, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Mercury, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Zinc, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Zinc, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Zinc, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Potassium, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Potassium, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Potassium, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Lead, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Lead, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Lead, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Magnesium, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Magnesium, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Magnesium, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Copper, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Copper, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Copper, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Sulphate, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Sulphate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Sulphate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.AmmonicalNitrogen, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.AmmonicalNitrogen, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AmmonicalNitrogen, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.NitriteNitrogen, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.NitriteNitrogen, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.NitriteNitrogen, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.OrganicNitrogen, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.OrganicNitrogen, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.OrganicNitrogen, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Phosphorus, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Phosphorus, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Phosphorus, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Permanganate, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Permanganate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Permanganate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Alkalinity, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Alkalinity, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Alkalinity, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BOD, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.BOD, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.BOD, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+    </div>
+
+}
+
+
+
+
+
+

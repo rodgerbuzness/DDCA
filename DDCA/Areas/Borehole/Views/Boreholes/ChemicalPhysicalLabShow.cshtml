@@ -1,0 +1,392 @@
+﻿@model DDCA.Areas.Borehole.ViewModels.ChemicalPhysicalLabView
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("", options))
+{
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center text-primary">View Borehole Data</h2>
+            <hr />
+
+            <h4 class="text-center text-info text-uppercase"><b>Water Chemical Composition(in Mg/L)</b></h4>
+            <div class="col-sm-4">
+
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Hardness)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Hardness)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Manganese)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Manganese)
+                    </dd>
+
+                    <dt>da 
+                        @Html.DisplayNameFor(x => x.ChemicalNew.OrthoPhosphate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.OrthoPhosphate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Iron)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Iron)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.NitrateNitrogen)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.NitrateNitrogen)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Carbonate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Carbonate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Phenophthalein)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Phenophthalein)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.NonCarbonate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.NonCarbonate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Sodium)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Sodium)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Cadmium)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Cadmium)
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Calcium)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Calcium)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Chloride)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Chloride)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Fluoride)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Fluoride)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.TotalNitrogen)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.TotalNitrogen)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Chromium)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Chromium)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Mercury)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Mercury)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Zinc)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Zinc)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Potassium)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Potassium)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Lead)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Lead)
+                    </dd>
+
+                </dl>
+            </div>
+
+            <div class="col-sm-4">
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Magnesium)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Magnesium)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Copper)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Copper)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Sulphate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Sulphate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.AmmonicalNitrogen)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.AmmonicalNitrogen)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.NitriteNitrogen)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.NitriteNitrogen)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.OrganicNitrogen)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.OrganicNitrogen)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Phosphorus)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Phosphorus)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Permanganate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Permanganate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.Alkalinity)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.Alkalinity)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.ChemicalNew.BOD)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.ChemicalNew.BOD)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+
+        <br />
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="text-left text-info text-uppercase"><b>Physical Analysis Results</b></h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.Color)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.Color)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.Turbidity)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.Turbidity)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.Odour)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.Odour)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.SettleableMatter)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.SettleableMatter)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.PH)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.PH)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.Taste)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.Taste)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.Conductivity)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.Conductivity)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.FiltrateResidue)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.FiltrateResidue)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.NonFiltrateResidue)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.NonFiltrateResidue)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.PhysicalLabNew.VolatileFixedResidue)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.PhysicalLabNew.VolatileFixedResidue)
+                    </dd>
+
+                </dl>
+            </div>
+
+            <div class="col-sm-6">
+                <h4 class="text-left text-info text-uppercase"><b>Laboratory Information</b></h4>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(x => x.PhysicalLabNew.LabName)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(x => x.PhysicalLabNew.LabName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(x => x.PhysicalLabNew.CollectedDate)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(x => x.PhysicalLabNew.CollectedDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(x => x.PhysicalLabNew.AnalysisDate)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(x => x.PhysicalLabNew.AnalysisDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(x => x.PhysicalLabNew.Remarks)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(x => x.PhysicalLabNew.Remarks)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(x => x.PhysicalLabNew.Recommend)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(x => x.PhysicalLabNew.Recommend)
+                            </dd>
+
+                        </dl>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <br />
+        <a href="@Url.Action("index")" class="btn btn-success">Or Back To List</a>
+
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+
+
+
+

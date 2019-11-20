@@ -1,0 +1,206 @@
+﻿@model DDCA.Areas.Borehole.ViewModels.BoreBorestrataView
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("BoreBorestrataShow", options))
+{
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    <div class="container">
+            <div class="row">
+                <h2 class="text-center text-primary">View Borehole Data</h2>
+                <hr />
+                <div class="col-sm-6">
+                    <h4 class="text-left text-info text-uppercase"><b>Borehole Information</b></h4>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.BoreholeNumber)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.BoreholeNumber)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.DrilledDiameter)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.DrilledDiameter)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.DepthOnFinish)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.DepthOnFinish)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.RigMachine)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.RigMachine)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.Northings)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.Northings)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.Eastings)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.Eastings)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.StartDate)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.StartDate)
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4 class="text-left text-info text-uppercase"><b>Drilling Methods Used</b></h4>
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.DrillingMethod)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.DrillingMethod)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boreholeNew.DrillDepth)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boreholeNew.DrillDepth)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+
+            <br />
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="text-left text-info text-uppercase"><b>Strata Found</b></h4>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boresrataNew.Strata1.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boresrataNew.Strata1.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boresrataNew.Strata2.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boresrataNew.Strata2.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(x => x.boresrataNew.Strata3.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(x => x.boresrataNew.Strata3.Name)
+                        </dd>
+
+                    </dl>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4 class="text-left text-info text-uppercase"><b>Depth Found(m)</b></h4>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(x => x.boresrataNew.Strata1.DepthFrom)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(x => x.boresrataNew.Strata2.DepthFrom)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(x => x.boresrataNew.Strata2.DepthFrom)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(x => x.boresrataNew.Strata2.DepthFrom)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(x => x.boresrataNew.Strata3.DepthFrom)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(x => x.boresrataNew.Strata3.DepthFrom)
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(x => x.boresrataNew.Strata1.DepthTo)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(x => x.boresrataNew.Strata2.DepthTo)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(x => x.boresrataNew.Strata2.DepthTo)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(x => x.boresrataNew.Strata2.DepthTo)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(x => x.boresrataNew.Strata3.DepthTo)
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(x => x.boresrataNew.Strata3.DepthTo)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <br />
+            <a href="@Url.Action("index")" class="btn btn-success">Or Back To List</a>
+
+        <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+
+
+
+

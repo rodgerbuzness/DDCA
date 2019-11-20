@@ -1,0 +1,29 @@
+﻿@model DDCA.Areas.Borehole.ViewModels.BoreholeEdit
+@{
+    ViewBag.Title = "Borehole Edit";
+}
+
+<div id="divContainer">
+    @Html.Partial("BoreholeDrillMethodEdit", Model)
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#StartDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $('#CompleteDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿@model DDCA.ViewModels.UserLogin
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*@Html.ValidationSummary()*@
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Username, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Username, null, new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+
+        </div>
+
+    </div>
+}
+
+

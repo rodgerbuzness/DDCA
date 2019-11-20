@@ -1,0 +1,151 @@
+﻿@model DDCA.Areas.Borehole.ViewModels.BoreholeEdit
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("BoreholeDrillMethodEdit", options))
+{
+
+    <h2 class="text-center text-primary">Edit Borehole Data</h2>
+    <hr />
+    <h2 class="">Step 2/<i class="text-info">7</i> :</h2>
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    @Html.HiddenFor(x => x.BoreholeId)
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="text-left text-info"><b>Boreholes Information</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BoreholeNumber, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.BoreholeNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.BoreholeNumber, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.RigMachine, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.RigMachine, ViewBag.Rig11 as SelectList, "-- Select Rig Name --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.RigMachine, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.DrilledDiameter, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.DrilledDiameter, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DrilledDiameter, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.DepthOnFinish, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.DepthOnFinish, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DepthOnFinish, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+
+                 
+                        <h4 class="text-left text-info"><b>Drilling Method Used</b></h4>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DrillingMethod, new { @class = "control-label col-sm-2" })
+
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(x => x.DrillingMethod, ViewBag.DrillMethodEdit as SelectList, "-- Select Drill Method --", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.DrillingMethod, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+             
+
+                    
+                        <h4 class="text-left text-info"><b>Drilled Depth(m)</b></h4>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.DrillDepth, new { @class = "control-label col-sm-2" })
+
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(x => x.DrillDepth, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.DrillDepth, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                 
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Northings, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Northings, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Northings, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Eastings, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Eastings, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Eastings, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.StartDate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(x => x.StartDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CompleteDate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.CompleteDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(x => x.CompleteDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+
+
+
+

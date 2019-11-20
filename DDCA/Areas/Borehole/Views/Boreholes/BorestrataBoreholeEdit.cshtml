@@ -1,0 +1,207 @@
+﻿@model DDCA.Areas.Borehole.ViewModels.BorestrataEdit
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("BorestrataBoreholeEdit", options))
+{
+
+    <h2 class="text-center text-primary">Edit Borehole Data</h2>
+    <hr />
+    <h2 class="">Step 3/<i class="text-info">7</i> :</h2>
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    @Html.HiddenFor(x => x.Strata1.Id)
+    @Html.HiddenFor(x => x.Strata2.Id)
+    @Html.HiddenFor(x => x.Strata3.Id)
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="text-left text-info"><b>Borestrata Information</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.StrataPoint, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-4">
+                            @Html.DropDownListFor(x => x.StrataPoint, ViewBag.VesPoints as SelectList, "-- Select --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.StrataPoint, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Strata1.Name, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Strata1.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Strata1.Name, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Strata2.Name, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Strata2.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Strata2.Name, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Strata3.Name, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Strata3.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Strata3.Name, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <div class="col-sm-6">
+
+
+                <h4 class="text-left text-info"><b>Depths(m)</b></h4>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Strata1.DepthFrom, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Strata1.DepthFrom, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Strata1.DepthFrom, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Strata1.DepthTo, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Strata1.DepthTo, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Strata1.DepthTo, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Strata2.DepthFrom, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Strata2.DepthFrom, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Strata2.DepthFrom, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Strata2.DepthTo, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Strata2.DepthTo, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Strata2.DepthTo, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Strata3.DepthFrom, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Strata3.DepthFrom, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Strata3.DepthFrom, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Strata3.DepthTo, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.Strata3.DepthTo, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Strata3.DepthTo, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <h4 class="text-left text-info"><b>Aquifer</b></h4>
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Formation, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Formation, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Formation, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.StruckDepth, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.StruckDepth, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.StruckDepth, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <input type="submit" name="nextBtn" value="Submit" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+
+
+
+
+

@@ -1,0 +1,172 @@
+﻿@model DDCA.Areas.Survey.ViewModels.SurveysNew
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+    
+}
+
+@using (Ajax.BeginForm("ClientSurvey" ,options))
+{
+
+    <h2 class="text-center text-primary">New Survey Data</h2>
+    <hr />
+    <h2 class="">Step 1 :</h2>
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="text-left text-info"><b>Clients Information</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Client.Name, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.Client.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Client.Name, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Client.Address, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Client.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Client.Address, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Client.Region, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.Client.Region, ViewBag.RegionList1 as SelectList, "-- Select Region Name --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Client.Region, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Client.Phone, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Client.Phone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Client.Phone, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Client.Email, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Client.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Client.Email, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h4 class="text-left text-info"><b>Survey Site Information</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Region, new { @class = "control-label col-sm-2" })
+
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.Region, ViewBag.RegionList2 as SelectList, "-- Select Region Name --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Region, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.District, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.District, new SelectList(""), "-- Select District Name --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.District, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Village, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Village, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Village, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SurveyorType, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.RadioButtonFor(x => x.SurveyorType, "DDCA", new { id = "typeDDCA" })
+                            DDCA Staff
+                        </div>
+
+                        <div class="col-sm-10">
+                            @Html.RadioButtonFor(x => x.SurveyorType, "External", new { id = "typeExternal" })
+                            External
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Cost, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Cost, new { @class = "form-control disabled", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(x => x.Cost, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.StartDate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(x => x.StartDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SurveyorName, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.SurveyorName, ViewBag.Staff as SelectList, "-- Select Staff Name --", new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(x => x.SurveyorName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.EndDate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            @Html.ValidationMessageFor(x => x.EndDate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Borehole New";
+}
+
+<div id="divContainer">
+    @Html.Partial("BoreholeDrillMethod")
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#StartDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $('#CompleteDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $('#CollectedDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $('#AnalysisDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+    </script>
+}

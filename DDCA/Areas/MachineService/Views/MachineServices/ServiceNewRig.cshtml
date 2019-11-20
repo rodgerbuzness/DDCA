@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Machine Vehicle Data</h1>
+
+<table class="table table-striped table-bordered table-hover table-responsive" id="surveyTable">
+    <thead>
+        <tr class="info text-primary">
+            <th>Registration Number</th>
+            <th>Model</th>
+            <th>Rig Type</th>
+            <th>Rig State</th>
+            <th>Region</th>
+            <th>District</th>
+            <th>Actions</th>
+            @*<th>Actions</th>*@
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="info">
+            <th>Registration Number</th>
+            <th>Model</th>
+            <th>Rig Type</th>
+            <th>Rig State</th>
+            <th>Region</th>
+            <th>District</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>
+
+<link href="~/Content/Styles/NewFolder1/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+
+@section scripts{
+    @*<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+    @*<script src="~/Scripts/dataTables.buttons.min.js"></script>
+        <script src="~/Scripts/buttons.flash.min.js"></script>
+        <script src="~/Scripts/buttons.html5.min.js"></script>
+        <script src="~/Scripts/buttons.print.min.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+            dataTable = $("#surveyTable").DataTable({
+                "ajax": {
+                    "url": "/MachineService/MachineServices/GetRigList",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "RigNo", "name": "RigNo" },
+                    { "data": "Model", "name": "Model" },
+                    { "data": "RigType", "name": "RigType" },
+                    { "data": "RigState", "name": "RigState" },
+                    { "data": "Region.Name", "name": "Region" },
+                    { "data": "District.Name", "name": "District" },
+
+                     {
+                        "data": "Id",
+                        "render": function (data) {
+                            //debugger
+                            return '<a href="@Url.Action("ServiceRigNew", "MachineServices")/' + data + '" class = "btn btn-success btn-sm">[Add a Service]</a> '
+
+                        },
+                        "orderable": false,
+                        "searchable": false
+
+                    }
+                ],
+                "serverSide": "true",
+                "order": [0, "desc"],
+                "processing": "true",
+                "language": {
+                    "processing": "processing... please wait"
+                }
+                //"dom": "Bfrtip",
+                //"buttons": ['copy', 'excel', 'csv', 'pdf', 'print']
+
+            });
+        });
+
+
+
+                function Delete(id) {
+            if (confirm('Are you Sure Delete this Rig Record ?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteRig", "Machines")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+
+                            //$.notify(data.message, {
+                            //    globalPosition: "top center",
+                            //    className: "success"
+                            //});
+                        }
+                    }
+                });
+            }
+        }
+
+    </script>
+
+}

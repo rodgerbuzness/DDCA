@@ -1,0 +1,179 @@
+﻿@*@model DDCA.Areas.Survey.ViewModels.SurveysIndex*@
+
+<h1>Surveys</h1>
+
+@*<div class="btn-toolbar">
+        <a href="@Url.Action("new")" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Create Survey</a>
+    </div>*@
+
+<table class="table table-striped table-bordered table-hover table-responsive" id="surveyTable">
+    <thead>
+        <tr class="info text-primary">
+            <th>Client Name</th>
+            <th>Region</th>
+            <th>District</th>
+            <th>Village</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Staff</th>
+            <th>Cost</th>
+            <th>Site Recommendation</th>
+            <th>Actions</th>
+            @*<th>Actions</th>*@
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="info">
+            <th>Client.Name</th>
+            <th>Region</th>
+            <th>District</th>
+            <th>Village</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Staff</th>
+            <th>Cost</th>
+            <th>Site Recommendation</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+
+
+
+    @*<tbody>
+            @foreach (var survey in Model.Surveys)
+            {
+                <tr>
+                    <td>@survey.Client.Name</td>
+                    <td>@survey.Region.Name</td>
+                    <td>@survey.District.Name</td>
+                    <td>@survey.Village</td>
+                    <td>@survey.StartDate</td>
+                    <td>@survey.Staff.Name</td>
+                    <td>@survey.Cost</td>
+                    <td>@survey.SiteRecommendation</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-xs btn-primary">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-xs btn-default">
+                                <i class="glyphicon glyphicon-list"></i>
+                                View
+                            </a>
+                            <a href="#" class="btn btn-xs btn-danger">
+                                <i class="glyphicon glyphicon-remove"></i>
+                                Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>*@
+
+</table>
+
+@*<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+<link href="~/Content/Styles/NewFolder1/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+
+@*<link href="~/Content/Styles/NewFolder1/bootstrap.min.css" rel="stylesheet" />*@
+@*<link href="~/Content/Styles/NewFolder1/dataTables.bootstrap4.min.css" rel="stylesheet" />*@
+
+@*<link href="~/Content/Styles/NewFolder1/dataTables.bootstrap.min.css" rel="stylesheet" />*@
+@*<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />*@
+@*<link href="~/Content/scroller.dataTables.min.css" rel="stylesheet" />*@
+@section scripts{
+    @*<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.flash.min.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+    @*<script src="~/Scripts/moment-with-locales.min.js"></script>*@
+    @*<script src="~/Scripts/dataTables.bootstrap4.min.js"></script>*@
+    @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+    @*<script src="~/Scripts/dataTables.scroller.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            dataTable = $("#surveyTable").DataTable({
+                "ajax": {
+                    "url": "/Survey/Surveys/GetSurveyList",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "Client.Name", "name": "Client.Name" },
+                    { "data": "Region.Name", "name": "Region.Name" },
+                    { "data": "District.Name", "name": "District.Name" },
+                    { "data": "Village", "name": "Village" },
+                    {
+                        "data": "StartDate",
+                        "name": "StartDate",
+                        "render": function (data) {
+                            return moment(data).format('DD/MM/YYYY');
+                        }
+                    },
+                    {
+                        "data": "EndDate",
+                        "name": "EndDate",
+                        "render": function (data) {
+                            return moment(data).format('DD/MM/YYYY');
+                        }
+                    },
+
+                    { "data": "Staff.Name", "name": "Staff.Name" },
+                    { "data": "Cost", "name": "Cost" },
+                    { "data": "SiteRecommendation", "name": "SiteRecommendation" },
+                    {
+                        "data": "Id",
+                        "render": function (data) {
+                            //debugger
+                            return '<a href="@Url.Action("EditSurvey", "Surveys")/' + data + '" class = "btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i></a> <a href="@Url.Action("Show", "Surveys")/' + data + '" class = "btn btn-primary btn-xs"><i class="glyphicon glyphicon-list"></i></a> <a onclick=Delete('+data+') class = "btn btn-danger btn-xs "><i class="glyphicon glyphicon-trash"></i></a>'
+
+                        },
+                        "orderable": false,
+                        "searchable": false
+
+                    }
+                ],
+                "serverSide": "true",
+                "order": [0, "asc"],
+                "processing": "true",
+                "language": {
+                    "processing": "processing... please wait"
+                }
+                //"dom": "Bfrtip",
+                //"buttons": ['copy', 'excel', 'csv', 'pdf', 'print']
+
+            });
+        });
+
+
+
+
+                function Delete(id) {
+            if (confirm('Are you Sure Delete this Survey Record ?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete", "Surveys")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+
+                            //$.notify(data.message, {
+                            //    globalPosition: "top center",
+                            //    className: "success"
+                            //});
+                        }
+                    }
+                });
+            }
+        }
+
+
+
+    </script>
+
+}

@@ -1,0 +1,293 @@
+﻿@model DDCA.Areas.Survey.ViewModels.SurveyView
+
+<div class="container">
+    <div class="row">
+        <h2 class="text-center text-primary">View Survey Data</h2>
+        <hr />
+    
+        <div class="col-sm-6">
+            <h4 class="text-left text-info text-uppercase"><b>Clients Information</b></h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.Client.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Client.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Client.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Client.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Client.Region)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Client.Region)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Client.Phone)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Client.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Client.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Client.Email)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="col-sm-6">
+            <h4 class="text-left text-info text-uppercase"><b>Survey Site Information</b></h4>
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Region)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Region)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.District)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.District)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.Village)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Village)
+                </dd>
+
+
+            </dl>
+        </div>
+    </div>
+
+    <br />
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.Cost)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Cost)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.StartDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.StartDate)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.SurveyorName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.SurveyorName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.EndDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.EndDate)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <h4 class="text-center text-info text-uppercase"><b>Survey Results</b></h4>
+    <div class="row">
+        <div class="text-center">
+            <h4>
+                <b><text>VES</text>@Model.ProfileEditor1.VESPoints</b>
+            </h4>
+            <hr />
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor1.Northing)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor1.Northing)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor1.Elevation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor1.Elevation)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor1.SurveyMethod)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor1.SurveyMethod)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor1.Easting)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor1.Easting)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor1.Recommend)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor1.Recommend)
+                </dd>
+            </dl>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            <h4>
+                <b><text>VES</text>@Model.ProfileEditor2.VESPoints</b>
+            </h4>
+            <hr />
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor2.Northing)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor2.Northing)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor2.Elevation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor2.Elevation)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor2.SurveyMethod)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor2.SurveyMethod)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor2.Easting)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor2.Easting)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor2.Recommend)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor2.Recommend)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            <h4>
+                <b><text>VES</text>@Model.ProfileEditor3.VESPoints</b>
+            </h4>
+            <hr />
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor3.Northing)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor3.Northing)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor3.Elevation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor3.Elevation)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor3.SurveyMethod)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor3.SurveyMethod)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor3.Easting)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor3.Easting)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.ProfileEditor3.Recommend)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.ProfileEditor3.Recommend)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.SiteRecommendation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.SiteRecommendation)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+</div>
+
+<br />
+<a href="@Url.Action("index")" class="btn btn-success">Or Back To List</a>

@@ -1,0 +1,60 @@
+﻿@using System.Web.Optimization;
+@{
+    Layout = null;
+}
+
+@helper selectedTabClass(string tabName)
+{
+    if (tabName == ViewBag.SelectedTab)
+    {
+        @: active
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DDCA</title>
+    @Styles.Render("~/admin/styles")
+
+</head>
+<body>
+
+    <div class="container">
+
+        <ul class="nav nav-pills">
+            <!--<li class="@selectedTabClass("surveys")">
+                @Html.ActionLink("Boreholes", "Index", new { area = "Borehole" }, new { })
+            </li>
+                -->
+
+            <li class="pull-right">
+                @Html.RouteLink("Back To Website", "Home")
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - FahariTechnologies</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/scripts/admin")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/Scripts.js"></script>
+
+    <div class="loaderbody" id="loaderbody">
+        <div class="loader"></div>
+    </div>
+
+    <form class="hidden" id="anti-forgery-form">
+        @Html.AntiForgeryToken()
+    </form>
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - DDCA</title>
+    @Styles.Render("~/styles")
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("DDCA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse" id="menuItem">
+                <ul class="nav navbar-nav" id="kubwa">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        if (User.IsInRole("User") || User.IsInRole("Admin") || User.IsInRole("DataEntry"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Survey Sites <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("New Survey", "New", new { controller = "Surveys", area = "Survey" })</li>
+                                    <li>@Html.ActionLink("Edit/View", "Index", new { controller = "Surveys", area = "Survey" })</li>
+                                </ul>
+                            </li>
+                            if(User.IsInRole("Manager") || User.IsInRole("Admin"))
+                            {
+                                 <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boreholes <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("New Borehole", "New", new { controller = "Boreholes", area = "Borehole" })</li>
+                                    <li>@Html.ActionLink("Edit/View", "Index", new { controller = "Boreholes", area = "Borehole" })</li>
+                                </ul>
+                            </li>
+                            }
+                           
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Machines <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Register a Car", "CarNew", new { controller = "Machines", area = "Machine" })</li>
+                                    <li>@Html.ActionLink("Register a Rig", "RigNew", new { controller = "Machines", area = "machine" })</li>
+                                    <li>@Html.ActionLink("Register a Compressor", "CompressorNew", new { controller = "Machines", area = "Machine" })</li>
+                                    <li>@Html.ActionLink("Edit/View Cars", "Index", new { controller = "Machines", area = "Machine" })</li>
+                                    <li>@Html.ActionLink("Edit/View Rigs", "IndexRig", new { controller = "Machines", area = "Machine" })</li>
+                                    <li>@Html.ActionLink("Edit/View Compressors", "IndexComprsr", new { controller = "Machines", area = "Machine" })</li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Machines Service <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Add a Car Service", "ServiceNewCar", new { controller = "MachineServices", area = "MachineService" })</li>
+                                    <li>@Html.ActionLink("Add a Rig Service", "ServiceNewRig", new { controller = "MachineServices", area = "MachineService" })</li>
+                                    <li>@Html.ActionLink("Add a Compressor Service", "ServiceNewCompressor", new { controller = "MachineServices", area = "MachineService" })</li>
+                                    <li>@Html.ActionLink("Edit/View Cars Service", "IndexCar", new { controller = "MachineServices", area = "MachineService" })</li>
+                                    <li>@Html.ActionLink("Edit/View Rigs Service", "IndexRig", new { controller = "MachineServices", area = "MachineService" })</li>
+                                    <li>@Html.ActionLink("Edit/View Compressors Service", "IndexCmprsr", new { controller = "MachineServices", area = "MachineService" })</li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Boreholes Report", "BoreholeReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                    <li>@Html.ActionLink("Survey Report", "SurveyReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                    <li>@Html.ActionLink("Car Service Report", "CarReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                    <li>@Html.ActionLink("Rig Service Report", "RigReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                    <li>@Html.ActionLink("Compressor Service Report", "CmprsrReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                    <li>@Html.ActionLink("Water-Well Completion Report", "WaterWellReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                    <li>@Html.ActionLink("Water Quality Report", "WaterQualityReport", new { controller = "BorehoeReport", area = "Report" })</li>
+                                </ul>
+                            </li>
+
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li>@Html.ActionLink("Admin", "Index", new { controller = "Users", area = "Admin" })</li>
+                            }
+
+                            <li><a href="@Url.RouteUrl("logout")">Logout</a></li>
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.RouteUrl("login")">Login</a></li>
+                    }
+
+                   
+
+                    @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                    {
+                        <li><a href="#"><i>Welcome Mr/Mrs @User.Identity.Name</i></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        
+    </div>
+
+    @Scripts.Render("~/scripts")
+    @RenderSection("Scripts", false)
+</body>
+</html>

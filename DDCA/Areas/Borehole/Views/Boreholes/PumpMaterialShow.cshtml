@@ -1,0 +1,300 @@
+﻿@model DDCA.Areas.Borehole.ViewModels.PumpMaterialView
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("ChemicalPhysicalLabShow", options))
+{
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+<div class="container">
+    <div class="row">
+        <h2 class="text-center text-primary">View Borehole Data</h2>
+        <hr />
+        <div class="col-sm-6">
+            <h4 class="text-center text-info text-uppercase"><b>Pump Testing Data</b></h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.Tester)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.Tester)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.YieldRate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.YieldRate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.DrawDownDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.DrawDownDepth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.DrawDownDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.DrawDownDepth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.SWLDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.SWLDepth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.AirLiftSizeDiameter)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.AirLiftSizeDiameter)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.AirLiftSizeDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.AirLiftSizeDepth)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.CylinderDiameter)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.CylinderDiameter)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.CylinderDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.CylinderDepth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.SubmissiblePumpsize)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.SubmissiblePumpsize)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.PumpTestingNew.SubmissibleDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.PumpTestingNew.SubmissibleDepth)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.Formation)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Formation)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-sm-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.StruckDepth)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.StruckDepth)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <h4 class="text-center text-info text-uppercase"><b>INSERTED MATERIALS IN THE BOREHOLE:</b></h4>
+        <div class="col-sm-6">
+            <h4 class="text-left text-info"><b>Casing Used</b></h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.CasingDiameter)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.CasingDiameter)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.CasingHeight)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.CasingHeight)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.CasingType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.CasingType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.BottomPlug)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.BottomPlug)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.TopProtection)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.TopProtection)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="col-sm-6">
+            <h4 class="text-left text-info"><b>Uncased Potion</b></h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.BackfillHeight)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.BackfillHeight)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.BackfillMaterial)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.BackfillMaterial)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.BackfillAvgSize)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.BackfillAvgSize)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.OtherBackfillMethod)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.OtherBackfillMethod)
+                </dd>
+            </dl>
+
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-left text-info"><b>Screen Used</b></h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.ScreenDiameter)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.ScreenDiameter)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.ScreenHeight)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.ScreenHeight)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.ScreenType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.ScreenType)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="col-sm-6">
+            <h4 class="text-left text-info"><b>Gravels Used</b></h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.GravelType)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.GravelType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.GravelAvgSize)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.GravelAvgSize)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.GravelFrom)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.GravelFrom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(x => x.BoreholeMaterialNew.GravelTo)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.BoreholeMaterialNew.GravelTo)
+                </dd>
+            </dl>
+
+
+        </div>
+    </div>
+
+
+
+    <br />
+    <a href="@Url.Action("index")" class="btn btn-success">Or Back To List</a>
+
+    <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+    <br />
+    <br />
+
+</div>
+
+}
+
+
+
+
+

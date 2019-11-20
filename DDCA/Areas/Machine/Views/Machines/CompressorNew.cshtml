@@ -1,0 +1,29 @@
+﻿@model DDCA.Areas.Machine.ViewModel.ComprsrNew
+
+<div id="divContainer">
+    @Html.Partial("NewCompressorMachine", Model)
+</div>
+
+
+@section scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Region').change(function () {
+                var regionId = $(this).val();
+                debugger
+                $.ajax({
+                    type: "post",
+                    url: "/Machine/Machines/GetDistrictList?RId=" + regionId,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $('#District').empty();
+                        $('#District').append(response);
+                    }
+                })
+            })
+        })
+    </script>
+
+}

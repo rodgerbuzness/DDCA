@@ -1,0 +1,252 @@
+﻿@model DDCA.Areas.Survey.ViewModels.SurveyProfileInfo
+
+@{
+    /**/
+
+    /**/
+
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+    //options.OnSuccess = "OnSuccess()";
+    //options.OnFailure = "";
+
+}
+
+
+
+@using (Ajax.BeginForm("SurveyProfile", options))
+{
+    //@Html.ValidationSummary()
+    <h2 class="text-center text-primary">New Survey Data</h2>
+    <hr />
+    <h2 class="">Step 2 :</h2>
+
+    <h3 class="text-center text-info"><b>Survey Profiles Information For Site at </b> <i>@ViewBag.Village</i></h3>
+    <br />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.VESPoints, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(x => x.ProfileEditor1.VESPoints, ViewBag.VesPoints as SelectList, "-- Select --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.VESPoints, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.Northing, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor1.Northing, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.Northing, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.Easting, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor1.Easting, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.Easting, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.Elevation, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor1.Elevation, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.Elevation, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <br />
+                <br />
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.SurveyMethod, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(x => x.ProfileEditor1.SurveyMethod, ViewBag.SurveyTypes as SelectList, "-- Select a Method--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.SurveyMethod, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.Recommend, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(x => x.ProfileEditor1.Recommend, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.Recommend, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    //Html.Partial("_SurveyProfileEditor")
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor2.VESPoints, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(x => x.ProfileEditor2.VESPoints, ViewBag.VesPoints as SelectList, "-- Select --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.VESPoints, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor2.Northing, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor2.Northing, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.Northing, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor2.Easting, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor2.Easting, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.Easting, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor2.Elevation, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor2.Elevation, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.Elevation, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <br />
+                <br />
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor2.SurveyMethod, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(x => x.ProfileEditor2.SurveyMethod, ViewBag.SurveyTypes as SelectList, "-- Select a Method--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.SurveyMethod, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor2.Recommend, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(x => x.ProfileEditor2.Recommend, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.Recommend, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+
+    //@Html.Partial("_SurveyProfileEditor")    <br />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor3.VESPoints, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-4">
+                        @Html.DropDownListFor(x => x.ProfileEditor3.VESPoints, ViewBag.VesPoints as SelectList, "-- Select --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor2.VESPoints, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor3.Northing, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor3.Northing, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor3.Northing, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor3.Easting, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor3.Easting, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor3.Easting, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor3.Elevation, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(x => x.ProfileEditor3.Elevation, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor3.Elevation, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <br />
+                <br />
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor3.SurveyMethod, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(x => x.ProfileEditor3.SurveyMethod, ViewBag.SurveyTypes as SelectList, "-- Select a Method--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor3.SurveyMethod, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor3.Recommend, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(x => x.ProfileEditor3.Recommend, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor3.Recommend, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+
+    <br />
+    <div class="row">
+        <div class="">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProfileEditor1.SiteRecommendation, new { @class = "control-label col-sm-2" })
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(x => x.ProfileEditor1.SiteRecommendation, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ProfileEditor1.SiteRecommendation, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    //<input type="submit" name="prevBtn" value='Previous' class="btn btn-success pull-left disabled" />
+    <input type="submit" name="nextBtn" value='Submit' class="btn btn-primary pull-right" />
+    <br />
+    <br />
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        function OnSuccess() {
+            $.notify("Access granted", "success");
+        }
+
+       function OnFailure() {
+           $.notify("BOOM!", "error");
+        }
+    </script>
+}
+

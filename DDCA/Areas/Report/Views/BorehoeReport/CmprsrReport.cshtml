@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Machine Service Data</h1>
+
+<table class="table table-striped table-bordered table-hover table-responsive" id="surveyTable">
+    <thead>
+        <tr class="info text-primary">
+            <th>Reg Id</th>
+            <th>Service Incharge</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Labour Cost</th>
+            <th>Material Cost</th>
+            <th>Service Description</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="info">
+            <th>Reg Id</th>
+            <th>Service Incharge</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Labour Cost</th>
+            <th>Material Cost</th>
+            <th>Service Description</th>
+        </tr>
+    </tfoot>
+</table>
+
+<link href="~/Content/Styles/NewFolder1/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+
+@section scripts{
+    @*<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+        <script src="~/Scripts/buttons.flash.min.js"></script>
+        <script src="~/Scripts/buttons.html5.min.js"></script>
+        <script src="~/Scripts/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            dataTable = $("#surveyTable").DataTable({
+                "ajax": {
+                    "url": "/Report/BorehoeReport/GetCmprsrServiceList",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "RegNo", "name": "RegNo" },
+                    { "data": "Staff.Name", "name": "Staff.Name" },
+                    {
+                        "data": "StartDate",
+                        "name": "StartDate",
+                        "render": function (data) {
+                            return moment(data).format('DD/MM/YYYY');
+                        }
+                    },
+                    {
+                        "data": "EndDate",
+                        "name": "EndDate",
+                        "render": function (data) {
+                            return moment(data).format('DD/MM/YYYY');
+                        }
+                    },
+                    { "data": "LabourCost", "name": "LabourCost" },
+                    { "data": "MaterialCost", "name": "MaterialCost" },
+                    { "data": "JobDone", "name": "JobDone" },
+                ],
+                "serverSide": "true",
+                "order": [0, "desc"],
+                "processing": "true",
+                "language": {
+                    "processing": "processing... please wait"
+                },
+                "dom": "Bfrtip",
+                "buttons": ['copy', 'excel', 'csv', 'pdf', 'print']
+
+            });
+        });
+
+
+
+                function Delete(id) {
+            if (confirm('Are you Sure Delete this Compressor Record ?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteCmprsr", "MachineServices")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+
+                            //$.notify(data.message, {
+                            //    globalPosition: "top center",
+                            //    className: "success"
+                            //});
+                        }
+                    }
+                });
+            }
+        }
+
+    </script>
+
+}

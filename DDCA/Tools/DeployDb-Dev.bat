@@ -1,0 +1,1 @@
+﻿..\..\packages\FluentMigrator.1.1.1.0\tools\Migrate.exe --db=sqlserver --target=..\bin\DDCA.dll --configPath=..\web.config -c=MainDb

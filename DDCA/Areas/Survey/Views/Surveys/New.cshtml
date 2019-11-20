@@ -1,0 +1,91 @@
+﻿
+
+
+<div id="divContainer">
+    @Html.Partial("ClientSurvey")
+</div>
+
+
+@section scripts{
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#StartDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $('#EndDate').datetimepicker({
+                format: "MM/DD/YYYY"
+            }).on('dp.change', function (e) {
+                $(this).data('DateTimePicker').hide();
+            });
+        });
+
+
+
+        $(document).ready(function () {
+            $('#Region').change(function () {
+                var regionId = $(this).val();
+                debugger
+                $.ajax({
+                    type: "post",
+                    url: "/Survey/Surveys/GetDistrictList?RId=" + regionId,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $('#District').empty();
+                        $('#District').append(response);
+                    }
+                })
+            })
+        })
+
+       
+    $('#typeDDCA').click(function() {
+        var $this = $(this);
+
+        if ($this.is(':checked')) {
+            $('#Cost').removeAttr("disabled");
+            $('#StartDate').removeAttr("disabled");
+            $('#SurveyorName').removeAttr("disabled");
+            $('#EndDate').removeAttr("disabled");
+            //$('#Cost').removeAttr("disabled");
+        } else {
+           
+
+        }
+    });
+
+    $('#typeExternal').click(function () {
+        var $this = $(this);
+
+        if ($this.is(':checked')) {
+            $('#Cost').attr("disabled", "disabled");
+            $('#StartDate').attr("disabled", "disabled");
+            $('#SurveyorName').attr("disabled", "disabled");
+            $('#EndDate').attr("disabled", "disabled");
+        } else {
+            
+
+        }
+    });
+
+    function OnSuccess(data) {
+        alert(data.message);
+    }
+
+    function OnFailure(xhr, status) {
+        alert('Error: ' + xhr.statusText);
+    }
+
+
+    </script>
+}
+
+
+
+
+

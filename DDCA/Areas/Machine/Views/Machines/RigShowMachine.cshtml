@@ -1,0 +1,128 @@
+﻿@model DDCA.Areas.Machine.ViewModel.RigEdit
+
+
+@{
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("BoreBorestrataShow", options))
+{
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center text-primary">View Machine Data</h2>
+            <hr />
+            <div class="col-sm-6">
+                <h4 class="text-left text-info text-uppercase"><b>Vehicle Information</b></h4>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(x => x.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.RegNo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.RegNo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.RigType)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.RigType)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.RigState)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.RigState)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.Model)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.Model)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.DriverName)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.DriverName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.BoughtDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.BoughtDate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.Region)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.Region)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.District)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.District)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.Status)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.Status)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(x => x.Remarks)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(x => x.Remarks)
+                    </dd>
+                </dl>
+            </div>
+
+ 
+        </div>
+
+        <br />
+
+
+
+
+        <br />
+        <a href="@Url.Action("IndexRig")" class="btn btn-success">Or Back To List</a>
+
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+
+
+
+

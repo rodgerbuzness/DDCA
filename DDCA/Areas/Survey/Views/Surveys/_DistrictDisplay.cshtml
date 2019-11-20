@@ -1,0 +1,12 @@
+﻿
+
+<option value="">-- Select District Name --</option>
+
+@if (ViewBag.districtLists != null)
+{
+    foreach (var item in ViewBag.districtLists)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
+

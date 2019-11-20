@@ -1,0 +1,210 @@
+﻿
+@model DDCA.Areas.Borehole.ViewModels.BoreholeMaterialEdit
+
+
+@{
+    /**/
+
+    /**/
+
+    AjaxOptions options = new AjaxOptions();
+    options.HttpMethod = "POST";
+    options.InsertionMode = InsertionMode.Replace;
+    options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("BoreholeMaterialEdit", options))
+{
+
+    <h2 class="text-center text-primary">New Borehole Data</h2>
+    <hr />
+    <h2 class="">Step 5/<i class="text-info">7</i> :</h2>
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    <div class="container">
+        <div class="row">
+            <h4 class="text-center text-info"><b>Boreholes Inserted Materials</b></h4>
+            <div class="col-sm-6">
+                <h4 class="text-center text-info"><b>Casing</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CasingDiameter, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.CasingDiameter, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CasingDiameter, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CasingHeight, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.CasingHeight, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CasingHeight, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CasingType, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.CasingType, ViewBag.CasingTypes as SelectList, "-- UPVC Casing --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CasingType, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BottomPlug, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.BottomPlug, ViewBag.CasingTypes as SelectList, "-- UPVC Plug --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.BottomPlug, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.TopProtection, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.TopProtection, ViewBag.CasingTypes as SelectList, "-- UPVC Top --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.TopProtection, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+
+                    <h4 class="text-center text-info"><b>Uncased Portion</b></h4>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BackfillHeight, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.BackfillHeight, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.BackfillHeight, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BackfillMaterial, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.BackfillMaterial, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.BackfillMaterial, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.BackfillAvgSize, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.BackfillAvgSize, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.BackfillAvgSize, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.OtherBackfillMethod, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(x => x.OtherBackfillMethod, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.OtherBackfillMethod, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="text-center text-info"><b>Screen</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.ScreenDiameter, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ScreenDiameter, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ScreenDiameter, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.ScreenHeight, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.ScreenHeight, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ScreenHeight, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.ScreenType, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.ScreenType, ViewBag.CasingTypes as SelectList, "-- UPVC Screen --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.ScreenType, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h4 class="text-center text-info"><b>Gravels</b></h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.GravelType, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.GravelType, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.GravelType, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.GravelAvgSize, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.GravelAvgSize, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.GravelAvgSize, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.GravelFrom, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.GravelFrom, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(x => x.GravelFrom, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.GravelTo, new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.GravelTo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(x => x.GravelTo, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+    </div>
+
+}
+
+
+
+
+
+

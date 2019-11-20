@@ -1,0 +1,156 @@
+﻿
+@model DDCA.Areas.Borehole.ViewModels.PumpTestingEdit
+
+
+@{
+                /**/
+
+                /**/
+
+                AjaxOptions options = new AjaxOptions();
+                options.HttpMethod = "POST";
+                options.InsertionMode = InsertionMode.Replace;
+                options.UpdateTargetId = "divContainer";
+
+}
+
+@using (Ajax.BeginForm("PumpTestingBoreholeEdit", options))
+{
+
+    <h2 class="text-center text-primary">Edit Borehole Data</h2>
+    <hr />
+    <h2 class="">Step 4/<i class="text-info">7</i> :</h2>
+    <h4 class="text-left text-info"><b>Pump Testing Data</b></h4>
+
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary()*@
+
+    @Html.HiddenFor(x => x.Id)
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.YieldRate, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.YieldRate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.YieldRate, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.DrawDownDepth, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.DrawDownDepth, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DrawDownDepth, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SWLDepth, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.SWLDepth, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.SWLDepth, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.AirLiftSizeDiameter, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.AirLiftSizeDiameter, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AirLiftSizeDiameter, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.AirLiftSizeDepth, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.AirLiftSizeDepth, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AirLiftSizeDepth, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CylinderDiameter, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.CylinderDiameter, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CylinderDiameter, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.CylinderDepth, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.CylinderDepth, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CylinderDepth, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SubmissiblePumpsize, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.SubmissiblePumpsize, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.SubmissiblePumpsize, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SubmissibleDepth, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.SubmissibleDepth, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.SubmissibleDepth, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Tester, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.Tester, ViewBag.watu as SelectList, "-- Select Name --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Tester, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.PumpResults, new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.RadioButtonFor(x => x.PumpResults, "Not Dry", new { id = "notDry" })
+                            Not Dry
+                        </div>
+
+                        <div class="col-sm-10">
+                            @Html.RadioButtonFor(x => x.PumpResults, "Dry", new { id = "dry" })
+                            Dry
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" name="nextBtn" value="Next" class="btn btn-primary pull-right" />
+
+        <br />
+        <br />
+
+    </div>
+
+}
+
+
+
+
+
+
